@@ -1,8 +1,13 @@
 import edu.princeton.cs.algs4.Graph;
+// import edu.princeton.cs.algs4.Bag;
+import java.util.Stack;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
 
+/**
+ * a simple Graph.java clinet.
+ */
 public class GraphTestDrive {
 
     public static int degree(Graph G, int v) {
@@ -40,9 +45,15 @@ public class GraphTestDrive {
         return count / 2;
     }
 
+    public static Iterable<Integer> nums() {
+        Stack<Integer> numbers = new Stack<Integer>();
+        numbers.push(1);
+        numbers.push(2);
+        numbers.push(3);
+
+        return numbers;
+    }
+
     public static void main(String[] args) {
-         In in = new In(args[0]);
-         Graph g = new Graph(in);
-         StdOut.print(g);
     }
 }

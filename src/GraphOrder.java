@@ -1,12 +1,14 @@
-import edu.princeton.cs.algs4.Graph;
+import edu.princeton.cs.algs4.Digraph;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.Stack;
-import edu.princeton.cs.algs4.In;
 
 /**
- *  
+ * can compute the preorder, postorder, and topological order of
+ * directed graphs.
+ *
+ * @author bleart
  */
-public class DirectedDFS {
+public class GraphOrder {
 
     private boolean[] marked;
     private int[] edgeTo;
@@ -14,7 +16,7 @@ public class DirectedDFS {
     private Queue<Integer> post;        // postorder
     private Stack<Integer> reversePost; // reverse postorder
 
-    public DirectedDFS(Graph g, int s) {
+    public GraphOrder(Digraph g, int s) {
         marked = new boolean[g.V()];
         edgeTo = new int[g.V()];
         pre    = new Queue<Integer>();
@@ -28,7 +30,7 @@ public class DirectedDFS {
         }
     }
 
-    private void dfs(Graph g, int v) {
+    private void dfs(Digraph g, int v) {
         pre.enqueue(v);
         marked[v] = true;
 

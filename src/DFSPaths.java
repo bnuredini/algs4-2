@@ -1,7 +1,11 @@
-import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.Graph;
+import edu.princeton.cs.algs4.Stack;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.StdOut;
 
 /**
  * algorithm 4.1: depth-first search
+ * finds out whether theres a path between two vertices
  *
  * @author bleart
  */
@@ -53,12 +57,11 @@ public class DFSPaths {
             throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V-1));
     }
 
-
-    public static void main(String[] args) {
+public static void main(String[] args) {
         In in = new In(args[0]);
         Graph G = new Graph(in);
         int s = Integer.parseInt(args[1]);
-        DepthFirstPaths dfs = new DepthFirstPaths(G, s);
+        DFSPaths dfs = new DFSPaths(G, s);
 
         for (int v = 0; v < G.V(); v++) {
             if (dfs.hasPathTo(v)) {

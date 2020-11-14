@@ -13,6 +13,7 @@ public class BFSPaths {
     private boolean[] marked;
     private int[] edgeTo;
     private final int s;
+    private int[] distTo;
 
     public BFSPaths(Graph G, int s) {
         marked = new boolean[G.V()];
@@ -31,6 +32,7 @@ public class BFSPaths {
                 if (!marked[w]) {
                     edgeTo[w] = v;
                     marked[w] = true;
+                    distTo[w] = distTo[v] + 1;
                     q.enqueue(w);
                 }
             }
