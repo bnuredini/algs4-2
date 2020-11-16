@@ -55,5 +55,6 @@ public class GraphTestDrive {
     }
 
     public static void main(String[] args) {
+	    StdOut.print("test");
     }
 }
