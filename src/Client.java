@@ -2,7 +2,7 @@ import edu.princeton.cs.algs4.*;
 
 /**
  * this class is used primarily for testing and could be 
- * anybody's client
+ * anybody's client.
  *
  * @author bleart
  */
