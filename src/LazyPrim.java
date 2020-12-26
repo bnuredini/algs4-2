@@ -6,13 +6,14 @@ import edu.princeton.cs.algs4.*;
  *
  * @author bleart
  */
-public class MSTwithLazyPrim {
+public class LazyPrim {
 
     private boolean[] marked; 
+    private Edge[] edgeTo;
     private MinPQ<Edge> pq;
     private Queue<Edge> mst;
     
-    public MSTwithLazyPrim(EdgeWeightedGraph g) {
+    public LazyPrim(EdgeWeightedGraph g) {
         marked = new boolean[g.V()];
         pq     = new MinPQ<Edge>();
         mst    = new Queue<Edge>();
@@ -32,7 +33,7 @@ public class MSTwithLazyPrim {
         }
     }
 
-    public void visit(EdgeWeightedGraph g, int v) {
+    private void visit(EdgeWeightedGraph g, int v) {
         marked[v] = true;
         for (Edge e : g.adj(v)) {
             if (!marked[e.other(v)]) 
@@ -42,5 +43,12 @@ public class MSTwithLazyPrim {
 
     public Iterable<Edge> edges() {
         return mst; 
+    }
+
+    public static void main(String[] args) {
+        EdgeWeightedGraph ewg = new EdgeWeightedGraph(new In(args[0]));
+        LazyPrim lazy = new LazyPrim(ewg);
+        for (Edge e : lazy.edges())
+            System.out.println(e);
     }
 }

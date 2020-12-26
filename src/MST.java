@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Edge implements Comparable<Edge> {
 
     private int v;      // starting edge
@@ -11,7 +13,7 @@ public class Edge implements Comparable<Edge> {
     }
 
     public int weight() {
-        return weight; 
+        return weight;
     }
 
     public int either() {
@@ -27,7 +29,7 @@ public class Edge implements Comparable<Edge> {
     public int compareTo(Edge that) {
         if (this.weight() > that.weight()) return +1; 
         if (this.weight() < that.weight()) return -1;
-        else                             return 0;
+        else                               return 0;
     }
 
     public String toString() {

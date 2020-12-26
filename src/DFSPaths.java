@@ -17,10 +17,10 @@ public class DFSPaths {
 
 
     public DFSPaths(Graph G, int s) {
+        validateVertex(s);
         this.s = s;
         edgeTo = new int[G.V()];
         marked = new boolean[G.V()];
-        validateVertex(s);
         dfs(G, s);
     }
 
@@ -33,7 +33,6 @@ public class DFSPaths {
             }
         }
     }
-
 
     public boolean hasPathTo(int v) {
         validateVertex(v);

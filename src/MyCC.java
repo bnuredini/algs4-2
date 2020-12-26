@@ -1,4 +1,5 @@
 import edu.princeton.cs.algs4.Graph;
+import edu.princeton.cs.algs4.In;
 
 /**
  * algorithm 4.3: depth-first search to find connected components
@@ -44,5 +45,11 @@ public class MyCC {
 
     public int id(int v) {
         return id[v];
+    }
+
+    public static void main(String[] args) {
+        Graph g = new Graph(new In(args[0]));
+        MyCC cc = new MyCC(g);
+        System.out.println(cc.count());
     }
 }

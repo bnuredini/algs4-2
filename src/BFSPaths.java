@@ -32,7 +32,6 @@ public class BFSPaths {
                 if (!marked[w]) {
                     edgeTo[w] = v;
                     marked[w] = true;
-                    distTo[w] = distTo[v] + 1;
                     q.enqueue(w);
                 }
             }
@@ -55,11 +54,14 @@ public class BFSPaths {
 
     public static void main(String[] args) {
         Graph g = new Graph(new In(args[0]));
-        int s   = Integer.parseInt(args[1]);
-        int v   = Integer.parseInt(args[2]);
+        // int s   = Integer.parseInt(args[1]);
+        // int v   = Integer.parseInt(args[2]);
+        int s = 0;
+        int v = 55;
         BFSPaths bfs = new BFSPaths(g, s);
 
         if (bfs.hasPathTo(v)) {
+            System.out.print(s + "-" + v + ": ");
             for (int x : bfs.pathTo(v)) {
                 if (x == s) System.out.print(x);
                 else        System.out.print("-" + x);
