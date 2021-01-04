@@ -13,11 +13,6 @@ public class MostSignificantDigit {
         sort(a, aux, 0, n-1, 0);
     }
 
-    private static int charAt(String s, int d) {
-        if (s.length() <= d) return -1;
-        return s.charAt(d);
-    }
-
     private static void sort(String[] a, String[] aux, int lo, int hi, int d) {
         if (lo >= hi) return;
         
@@ -35,13 +30,18 @@ public class MostSignificantDigit {
         }
 
         for (int i = lo; i <= hi; i++) {
-            aux[i] = a[i];
+            aux[i] = a[i - lo];
         }
 
         // recursively sort for each character
         for (int r = 0; r < R; r++) {
             sort(a, aux, lo + count[r], lo + count[r+1] - 1, d + 1);
         }
+    }
+
+    private static int charAt(String s, int d) {
+        if (s.length() == d) return -1;
+        return s.charAt(d);
     }
 
     public static void print(String[] a) {
@@ -71,7 +71,8 @@ public class MostSignificantDigit {
     }
 
     public static void main(String[] args) {
-        String[] a = {"170", "045", "075", "025", "002", "024", "802", "066"};
+        // String[] a = {"170", "045", "075", "025", "002", "024", "802", "066"};
+        String[] a = {"she", "across", "shells", "seashells"};
         sort(a);
         print(a);
     }
