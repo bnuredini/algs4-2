@@ -8,17 +8,17 @@ public class Dijkstra {
 
     public Dijkstra(EdgeWeightedDigraph g, int s) {
         distTo = new double[g.V()];
-        edgeTo = new Edge[g.V()];
+        edgeTo = new DirectedEdge[g.V()];
         pq = new IndexMinPQ(g.V());
 
         for (int i = 0; i < g.V(); i++) {
-            distTo[i] = Integer.POSITIVE_INFINITY;
+            distTo[i] = 999999999;
         }
 
         distTo[s] = 0.0;
         pq.insert(s, distTo[s]);
         while (!pq.isEmpty()) {
-            int v = q.delMin();
+            int v = pq.delMin();
             for (DirectedEdge e : g.adj(v)) {
                 relax(e);
             }
@@ -31,8 +31,8 @@ public class Dijkstra {
         if (distTo[w] > distTo[v] + e.weight()) {
             distTo[w] = distTo[v] + e.weight();
             edgeTo[w] = e;
-            if (pq.contains(e)) pq.change(w, e);
-            else                pq.insert(w, e);
+            if (pq.contains(w)) pq.change(w, distTo[w]);
+            else                pq.insert(w, distTo[w]);
         }
     }
 

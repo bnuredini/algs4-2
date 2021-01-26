@@ -1,6 +1,12 @@
 /**
  * algorithm 5.4: trie symbol table
  *
+ * each node has an array of references to R other 
+ * nodes that indirectly correspond to each character
+ * of the alphabet; in these nodes we also keep a 
+ * value, which represents the value associated with
+ * the key corresponding to that node.
+ *
  * doesn't use the Key generic because the keys are
  * going to be Strings
  *
@@ -8,11 +14,11 @@
  */
 public class TrieSymbolTable<Value> {
 
-    private final int R = 256;
+    private static final int R = 256;
     private Node root;
 
     private static class Node {
-        private Object value; 
+        private Object val; 
         private Node[] next = new Node[R];
     }
     
@@ -20,7 +26,7 @@ public class TrieSymbolTable<Value> {
         root = put(root, key, val, 0);
     }
 
-    private Node put(Node x, String key, Value val, d) {
+    private Node put(Node x, String key, Value val, int d) {
         if (x == null) x = new Node();
         if (d == key.length()) {
             x.val = val;
@@ -35,7 +41,7 @@ public class TrieSymbolTable<Value> {
     public Value get(String key) {
         Node x = get(root, key, 0);
         if (x == null) return null;
-        return x.val;
+        return (Value) x.val;
     }
 
     public Node get(Node x, String key, int d) {
@@ -49,5 +55,6 @@ public class TrieSymbolTable<Value> {
         TrieSymbolTable<Integer> st = new TrieSymbolTable<>();
         st.put("unix", 2);
         st.put("sun", 2);
+        System.out.println(st.get("sun"));
     }
 }

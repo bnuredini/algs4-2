@@ -3,11 +3,11 @@
  *
  * @author bleart
  */
-public class TernarySearchTries<Value> {
+public class TernarySearchTrie<Value> {
 
-    private Node root;
+    private Node root;      // the TST is rooted at this node
 
-    public class Node {
+    public class Node<Value> {
         private Value val;
         private char c;
         private Node left;
@@ -33,7 +33,7 @@ public class TernarySearchTries<Value> {
         return x;
     }
 
-    public Value get(String key) {
+    public Object get(String key) {
         Node x = get(root, key, 0);
         if (x == null) return null;
         return x.val;
@@ -52,5 +52,26 @@ public class TernarySearchTries<Value> {
         } else {
             return x;
         }
+    }
+
+    public String longestPrefixOf(String query) {
+        if (query == null) {
+            throw new IllegalArgumentException("calls longestPrefixOf() with null argument");
+        }
+        if (query.length() == 0) return null;
+        int length = 0;
+        Node<Value> x = root;
+        int i = 0;
+        while (x != null && i < query.length()) {
+            char c = query.charAt(i);
+            if      (c < x.c) x = x.left;
+            else if (c > x.c) x = x.right;
+            else {
+                i++;
+                if (x.val != null) length = i;
+                x = x.middle;
+            }
+        }
+        return query.substring(0, length);
     }
 }

@@ -42,8 +42,9 @@ public class LeastSignificantDigit {
     }
 
     public static void main(String[] args) {
-        String[] a = {"170", "145", "375", "290", "992", "802", "112", "166"};
-        LeastSignificantDigit.sort(a, 3);
+        // String[] a = {"TRUE", "FEEL", "DOWN", "BLUE", "GOOD", "BYES", "TREE", "KITI", "KATI", "FIND", "TRIE", "FALL"};
+        String[] a = {"no", "is", "th", "ti", "fo", "al", "go", "pe", "to", "co", "to", "th", "ai", "of", "th", "pa"};
+        LeastSignificantDigit.sort(a, 2);
         LeastSignificantDigit.print(a);
     }
 }

@@ -1,11 +1,12 @@
-import edu.cs.algs4.*; 
+import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.Edge;
 
 public class EagrePrim {
 
     private boolean[] marked;
     private double[] distTo;
     private Edge[] edgeTo;
-    private MinIndexPQ<Double>() pq;
+    private IndexMinPQ<Double> pq;
 
     public EagrePrim(EdgeWeightedGraph g) {
         marked = new boolean[g.V()];
@@ -13,7 +14,7 @@ public class EagrePrim {
         edgeTo = new Edge[g.V()];
         for (int v = 0; v < g.V(); v++)
             distTo[v] = Double.POSITIVE_INFINITY;
-        pq = new MinIndexPQ<>(g.V());
+        pq = new IndexMinPQ<>(g.V());
 
         pq.insert(0, 0.0);
         while (!pq.isEmpty())

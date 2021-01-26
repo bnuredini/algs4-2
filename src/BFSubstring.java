@@ -28,7 +28,7 @@ public class BFSubstring {
         int n = txt.length();
         int m = pat.length();
 
-        for (i = 0, j = 0; i < N && j < M; i++) {
+        for (i = 0, j = 0; i < n && j < m; i++) {
             if (txt.charAt(i) == pat.charAt(j)) {
                 j++;
             } else {

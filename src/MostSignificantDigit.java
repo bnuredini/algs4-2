@@ -71,8 +71,8 @@ public class MostSignificantDigit {
     }
 
     public static void main(String[] args) {
-        // String[] a = {"170", "045", "075", "025", "002", "024", "802", "066"};
-        String[] a = {"she", "across", "shells", "seashells"};
+        String[] a = {"170", "045", "075", "025", "002", "024", "802", "066"};
+        //String[] a = {"now", "is", "the", "time", "for", "all", "good", "people", "to", "come", "to", "the", "aid", "of"};
         sort(a);
         print(a);
     }
